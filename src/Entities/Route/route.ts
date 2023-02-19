@@ -25,7 +25,9 @@ export class Route {
     updatePoints(points: LatLng[]) {
         this.updatePointsValue = points;
     }
-
+    toJSON(): RouteTypes {
+        return this.props;
+    }
     createRoute(points: LatLng[]) {
         let message: string;
 
