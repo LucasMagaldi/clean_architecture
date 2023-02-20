@@ -15,6 +15,13 @@ type createRouteOutPut = {
     points?: LatLng[]
 };
 
+type findAllOutPut = {
+    title: string,
+    startPosition: LatLng,
+    endPosition: LatLng,
+    points?: LatLng[]
+}[];
+
 export class createRoute {
 
     constructor(private routeRepo: RouteRepository) {
@@ -26,5 +33,9 @@ export class createRoute {
         const route = new Route(input);
         await this.routeRepo.insert(route);
         return route.toJSON();
+    }
+    async findAll(): Promise<findAllOutPut> {
+        const routes = await this.routeRepo.findAll();
+        return routes.map(route => route.toJSON());
     }
 }

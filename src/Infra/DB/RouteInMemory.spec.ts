@@ -13,5 +13,6 @@ describe("RouteinMemory test", () => {
         const route = new Route(routeProps);
         await repository.insert(route);
         expect(repository.items).toHaveLength(2);
+        expect(repository.items).toStrictEqual([route]);
     });
 });
