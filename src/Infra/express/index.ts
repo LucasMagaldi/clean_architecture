@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express";
-import { createRoute } from "../Usecases/Route/RouteUseCase";
-import { RouteInMemory } from "./DB/RouteInMemory";
+import { createRoute } from "../../Usecases/Route/RouteUseCase";
+import { RouteInMemory } from ".././DB/RouteInMemory";
 
 const app: Express = express();
 app.use(express.json());
