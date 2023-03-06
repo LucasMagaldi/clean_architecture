@@ -9,10 +9,15 @@ export type RouteTypes = {
 export class Route {
     public props: Required<RouteTypes>;
     constructor(props: RouteTypes) {
+        
         this.props = {
             ...props,
             points: props.points || []
         };
+    }
+
+    static create(props: RouteTypes) {
+        return new Route(props);
     }
 
     updateTitle(title: string) {
